@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"3d4e5f67890a1b2c","type":"group","x":-820,"y":1370,"width":1705,"height":1010,"color":"3","label":"来源入口"},
+		{"id":"0a1b2c3d4e5f6789","type":"group","x":-820,"y":-260,"width":1700,"height":500,"color":"4","label":"1. 先会识别：PDE 语言、阶数、线性、齐次"},
+		{"id":"1b2c3d4e5f67890a","type":"group","x":-820,"y":300,"width":1700,"height":500,"color":"5","label":"2. 再会归类：经典模型、定解问题、边界条件"},
+		{"id":"2c3d4e5f67890a1b","type":"group","x":-820,"y":860,"width":1700,"height":430,"color":"6","label":"3. 最后复盘：适定性、作业抓手、下章连接"},
+		{"id":"1a0f3c9b2d4e6a80","type":"text","text":"# 第01章\n基本概念与定解问题\n\n考试定位：只需知道，不直接考。\n\n用途：学会 PDE 语言，为第二章分类、第三章分离变量、第六七章唯一性与稳定性打底。\n\n阅读顺序：先识别方程，再看模型，再拆定解问题。","x":-760,"y":-180,"width":360,"height":270,"color":"5"},
+		{"id":"2b1e4d0c3f5a7b91","type":"text","text":"## PDE 基本语言\n\n- 未知函数：通常是 $u$。\n- 自变量：$x,y,z,t$，不是未知函数。\n- 偏导数：$u_x,u_t,u_{xx},u_{xy}$。\n- 阶数：看最高阶偏导数。\n\n先问两件事：\n\n1. 未知函数是谁？\n2. 它依赖哪些变量？","x":-360,"y":-180,"width":360,"height":270,"color":"4"},
+		{"id":"3c2f5e1d4a6b8c02","type":"text","text":"## 阶数 / 线性 / 齐次\n\n判断顺序：\n\n1. 找最高阶偏导数。\n2. 看 $u$ 和导数是否只一次出现。\n3. 系数只含自变量，不破坏线性。\n4. 线性时再看是否有自由项。\n\n易错：$xu$ 不是非齐次项；$\\sqrt{1+u}$ 会导致非线性。","x":40,"y":-180,"width":360,"height":270,"color":"3"},
+		{"id":"4d306f2e5b7c9d13","type":"text","text":"## 叠加原理\n\n只用于线性方程。\n\n若 $L[u_i]=0$，则在收敛和可逐项求导条件下，$\\sum C_i u_i$ 仍是齐次线性方程的解。\n\n考试用途：解释分离变量法为什么能把简单解相加。\n\n非线性方程不能随便叠加。","x":440,"y":-180,"width":360,"height":270,"color":"6"},
+		{"id":"5e41703f6c8dae24","type":"text","text":"## 三个经典模型\n\n波动方程：\n\n$$\nu_{tt}=a^2\\Delta u\n$$\n\n热传导方程：\n\n$$\nu_t=a^2\\Delta u\n$$\n\nLaplace / Poisson：\n\n$$\n\\Delta u=0,\\qquad \\Delta u=f\n$$\n\n第一章只认形状，第二章再正式分类。","x":-760,"y":380,"width":360,"height":300,"color":"2"},
+		{"id":"6f5281407d9ebf35","type":"text","text":"## 定解问题\n\n方程本身不够，必须加条件。\n\n$$\n\\text{定解问题}=\\text{泛定方程}+\\text{定解条件}\n$$\n\n考试写法：\n\n$$\n\\text{方程}+\\text{区域}+\\text{初值}+\\text{边界}\n$$\n\n初始条件看 $t=0$；边界条件看空间边界。","x":-360,"y":380,"width":360,"height":300,"color":"4"},
+		{"id":"7a6392518eafc046","type":"text","text":"## 边界条件\n\nDirichlet：给 $u|_\\Gamma$。\n\nNeumann：给 $\\partial u/\\partial\\nu$。\n\nRobin：给\n\n$$\n\\alpha u+\\beta\\frac{\\partial u}{\\partial\\nu}\n$$\n\n一维区间外法线：$x=0$ 向左，$x=L$ 向右。","x":40,"y":380,"width":360,"height":300,"color":"3"},
+		{"id":"8b74a3629fb0d157","type":"text","text":"## 适定性\n\n适定 = 存在 + 唯一 + 稳定。\n\n- 存在：至少有一个解。\n- 唯一：至多有一个解。\n- 稳定：条件小变化，解也只小变化。\n\nNeumann 问题常见陷阱：若 $u$ 是解，$u+C$ 仍是解，所以一般不唯一。","x":440,"y":380,"width":360,"height":300,"color":"1"},
+		{"id":"9c85b473a0c1e268","type":"text","text":"## 作业抓手\n\n习题 1-1：判断阶数、线性、齐次。\n\n- 行列式题先展开。\n- 变量系数不是非线性。\n\n习题 1-3：定解问题和适定性。\n\n- Neumann 不唯一。\n- 相容条件 $\\int_\\Omega f\\,dV=0$。\n- 热辐射边界是非线性边界。\n- Hadamard 例子说明不稳定。","x":-760,"y":940,"width":420,"height":280,"color":"6"},
+		{"id":"4e5f67890a1b2c3d","type":"text","text":"## 和后续章节的连接\n\n第二章：用“阶数、线性、二阶主部”做分类。\n\n第三章：用经典模型和边界条件做分离变量。\n\n第六、七章：用定解问题、边界条件和适定性写唯一性 / 稳定性证明。\n\n第一章不要深挖推导，重点是判断口径稳定。","x":-260,"y":940,"width":420,"height":280,"color":"5"},
+		{"id":"5f67890a1b2c3d4e","type":"text","text":"## 最小复习动作\n\n1. 先刷 `习题1-1`，每题只写三件事：阶数、线性、齐次。\n2. 再看 `习题1-3`，记住 Neumann 不唯一和相容条件。\n3. 最后回到第二章：看到二阶线性方程，立刻能取主部。\n\n错题只记“判断规则”，不要另开错误日志。","x":240,"y":940,"width":460,"height":280,"color":"2"},
+		{"id":"6f7890a1b2c3d4e5","type":"text","text":"## 资料阅读顺序\n\n1. 先看完整笔记。\n2. 做 `习题1-1` 和 `习题1-3`。\n3. 做完再看参考答案。\n4. 课件只用于核对概念、模型推导和定解条件。\n\n第一章目标是“会认、会说、会拆条件”。","x":-760,"y":1490,"width":360,"height":260,"color":"3"},
+		{"id":"ad96c584b1d2f379","type":"file","file":"notes/第01章-基本概念与定解问题.md","x":-360,"y":1430,"width":330,"height":230},
+		{"id":"bea7d695c2e3084a","type":"file","file":"raw/作业/第01章/习题1-1.md","x":0,"y":1430,"width":330,"height":230},
+		{"id":"cfb8e7a6d3f4195b","type":"file","file":"raw/作业/第01章/习题1-3.md","x":360,"y":1430,"width":330,"height":230},
+		{"id":"7a890b1c2d3e4f50","type":"file","file":"raw/作业/第01章/参考答案/习题1-1参考答案.md","x":-360,"y":1690,"width":330,"height":230},
+		{"id":"8b901c2d3e4f5061","type":"file","file":"raw/作业/第01章/参考答案/习题1-3参考答案.md","x":0,"y":1690,"width":330,"height":230},
+		{"id":"9c012d3e4f506172","type":"file","file":"raw/slides/01-第01章-基本概念.pdf","x":-360,"y":2020,"width":330,"height":230},
+		{"id":"ad123e4f50617283","type":"file","file":"raw/slides/04-第01章-定解问题.pdf","x":0,"y":2020,"width":330,"height":230}
+	],
+	"edges":[
+		{"id":"d0a1b2c3e4f50617","fromNode":"1a0f3c9b2d4e6a80","fromSide":"right","toNode":"2b1e4d0c3f5a7b91","toSide":"left","color":"4"},
+		{"id":"e1b2c3d4f5061728","fromNode":"2b1e4d0c3f5a7b91","fromSide":"right","toNode":"3c2f5e1d4a6b8c02","toSide":"left","color":"3"},
+		{"id":"f2c3d4e506172839","fromNode":"3c2f5e1d4a6b8c02","fromSide":"right","toNode":"4d306f2e5b7c9d13","toSide":"left","color":"6"},
+		{"id":"a3d4e5f61728394a","fromNode":"4d306f2e5b7c9d13","fromSide":"bottom","toNode":"5e41703f6c8dae24","toSide":"top","color":"2","label":"进入模型"},
+		{"id":"b4e5f60728394a5b","fromNode":"5e41703f6c8dae24","fromSide":"right","toNode":"6f5281407d9ebf35","toSide":"left","color":"4"},
+		{"id":"c5f60718394a5b6c","fromNode":"6f5281407d9ebf35","fromSide":"right","toNode":"7a6392518eafc046","toSide":"left","color":"3"},
+		{"id":"d60718294a5b6c7d","fromNode":"7a6392518eafc046","fromSide":"right","toNode":"8b74a3629fb0d157","toSide":"left","color":"1"},
+		{"id":"e718293a5b6c7d8e","fromNode":"8b74a3629fb0d157","fromSide":"bottom","toNode":"9c85b473a0c1e268","toSide":"top","color":"6","label":"用作业检验"},
+		{"id":"f8293a4b6c7d8e9f","fromNode":"9c85b473a0c1e268","fromSide":"right","toNode":"4e5f67890a1b2c3d","toSide":"left","color":"5"},
+		{"id":"a93a4b5c7d8e9f10","fromNode":"4e5f67890a1b2c3d","fromSide":"right","toNode":"5f67890a1b2c3d4e","toSide":"left","color":"2","label":"复习动作"}
+	]
+}

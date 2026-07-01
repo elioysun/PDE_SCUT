@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"daf5172bcb3d6e80","type":"group","x":-820,"y":1510,"width":1700,"height":720,"color":"3","label":"来源入口"},
+		{"id":"b8e3d2f5a91b4c6d","type":"group","x":-820,"y":300,"width":1700,"height":560,"color":"5","label":"2. 再化形：从特征变量到标准型"},
+		{"id":"a7f2c1d4e8093b5a","type":"group","x":-820,"y":-260,"width":1700,"height":500,"color":"4","label":"1. 先判型：从主部到区域讨论"},
+		{"id":"c9f4e306ba2c5d7e","type":"group","x":-820,"y":930,"width":1700,"height":500,"color":"6","label":"3. 最后复盘：多变量、作业抓手、易错点"},
+		{"id":"02a1c3e5f709b1d3","type":"text","text":"# 第02章\n二阶方程分类与标准型\n\n考试定位：直接考，核心是“分类 + 化标准型”。\n\n考场口令：\n\n$$\n\\text{主部}\\to(a,b,c)\\to\\Delta\\to\\text{类型}\\to\\text{特征方程}\\to\\xi,\\eta\\to\\text{标准型}\n$$","x":-760,"y":-180,"width":360,"height":260,"color":"5"},
+		{"id":"24c3e5f7192b4d60","type":"text","text":"## 二阶主部\n\n标准写法：\n\n$$\na u_{xx}+2b u_{xy}+c u_{yy}\n$$\n\n分类只看二阶主部；标准型要把低阶项补回。\n\n最常见扣分：题中 $4u_{xy}$ 对应 $2b=4$，所以 $b=2$，不是 $b=4$。","x":-360,"y":-180,"width":360,"height":260,"color":"3"},
+		{"id":"35d4f6082a3c5e71","type":"text","text":"## 判别式与类型\n\n$$\n\\Delta=b^2-ac\n$$\n\n| 判别式 | 类型 | 特征线 |\n| --- | --- | --- |\n| $\\Delta>0$ | 双曲型 | 两族实特征线 |\n| $\\Delta=0$ | 抛物型 | 一族实特征线 / 退化 |\n| $\\Delta<0$ | 椭圆型 | 无实特征线 |\n\n先判型，再谈标准型。","x":40,"y":-180,"width":360,"height":260,"color":"2"},
+		{"id":"8ac93b5d7f6082a4","type":"text","text":"## 变系数与退化线\n\n典型题：\n\n$$\nu_{xx}+(x+y)^2u_{yy}+xu_x=0\n$$\n\n$$\n\\Delta=-(x+y)^2\n$$\n\n结论：\n\n- $x+y\\ne0$：椭圆型。\n- $x+y=0$：退化线，按判别式为抛物型。\n\n退化线不是边界线，而是 $\\Delta=0$ 的点集；线上主部少一个有效二阶方向。","x":440,"y":-180,"width":360,"height":330,"color":"1"},
+		{"id":"13b2d4f6081a3c5e","type":"text","text":"## 考场总流程\n\n1. 只取二阶主部。\n2. 写成 $a u_{xx}+2b u_{xy}+c u_{yy}$。\n3. 算 $\\Delta=b^2-ac$。\n4. 变系数题按区域讨论。\n5. 解特征方程，选 $\\xi,\\eta$。\n6. 检查 $J\\ne0$。\n7. 链式法则代回，补低阶项。\n8. 最后把主部归一化。","x":-760,"y":370,"width":360,"height":330,"color":"4"},
+		{"id":"46e5f7193b4d6082","type":"text","text":"## 特征方程\n\n二元二阶方程：\n\n$$\na(dy)^2-2b\\,dx\\,dy+c(dx)^2=0\n$$\n\n若 $a\\ne0$：\n\n$$\n\\frac{dy}{dx}=\\frac{b\\pm\\sqrt{b^2-ac}}{a}\n$$\n\n斜率积分出 $y-mx=C$，$C$ 是曲线编号；把曲线族常数取作新变量。","x":-360,"y":370,"width":360,"height":370,"color":"4"},
+		{"id":"57f6082a4c5e7193","type":"text","text":"## 换元合法性\n\n设\n\n$$\n\\xi=\\varphi(x,y),\\qquad \\eta=\\psi(x,y)\n$$\n\n必须检查：\n\n$$\nJ=\\begin{vmatrix}\n\\varphi_x&\\varphi_y\\\\\n\\psi_x&\\psi_y\n\\end{vmatrix}\\ne0\n$$\n\n$J\\ne0$ = 新坐标能反定位旧坐标；合法换元下 $\\Delta'=J^2\\Delta$，类型不变。","x":40,"y":370,"width":360,"height":390,"color":"6"},
+		{"id":"79b82a4c6e7193b5","type":"text","text":"## 链式法则补低阶项\n\n令 $u(x,y)=v(\\xi,\\eta)$。\n\n主部会变成：\n\n$$\na u_{xx}+2b u_{xy}+c u_{yy}=A v_{\\xi\\xi}+2Bv_{\\xi\\eta}+Cv_{\\eta\\eta}+\\text{低阶项}\n$$\n\n$A,B,C$ 是换元后的新 $a,b,c$；低阶项来源是原方程一阶项和换元二阶导数。","x":440,"y":370,"width":360,"height":390,"color":"3"},
+		{"id":"68a7193b5d6082a4","type":"text","text":"## 三类标准型目标\n\n双曲型：\n\n$$\nv_{\\xi\\eta}=\\cdots\n$$\n\n或\n\n$$\nv_{\\alpha\\alpha}-v_{\\beta\\beta}=\\cdots\n$$\n\n抛物型：\n\n$$\nv_{\\eta\\eta}=\\cdots\n$$\n\n椭圆型：\n\n$$\nv_{\\xi\\xi}+v_{\\eta\\eta}=\\cdots\n$$\n\n记忆：双曲两条线；抛物一条线再补一个；椭圆无实线，复根取实虚。","x":-760,"y":1000,"width":360,"height":410,"color":"5"},
+		{"id":"9bda4c6e806193b5","type":"text","text":"## 多个自变量\n\n主部写成对称二次型：\n\n$$\n\\sum_{i,j=1}^n a_{ij}u_{x_ix_j}\n\\quad\\leftrightarrow\\quad\nQ=\\sum_{i,j=1}^n a_{ij}\\alpha_i\\alpha_j\n$$\n\n做法：\n\n- 交叉项系数平均分到矩阵两侧。\n- 配方或线性变换化平方和。\n- 最终系数化为 $1,-1,0$。","x":-360,"y":1000,"width":360,"height":340,"color":"6"},
+		{"id":"aceb5d7f9172a4c6","type":"text","text":"## 习题 2-2 抓手\n\n1(2)：常系数椭圆型；关键是 $b=2$。\n\n1(4)：变系数双曲型；$dy/dx=-\\cos x\\pm2$。\n\n1(6)：按 $y^m$ 符号和 $y=0$ 退化线讨论。\n\n1(8)：$\\Delta=-(x+y)^2$；不要漏 $x+y=0$。\n\n2(1)、2(3)：三变量矩阵 / 二次型配方。","x":40,"y":1000,"width":360,"height":340,"color":"4"},
+		{"id":"bdfc6e8092a3b5d7","type":"text","text":"## 易错清单\n\n- 把 $u_{xy}$ 系数直接当 $b$。\n- 变系数题只在一个点分类。\n- 漏写退化线。\n- 取了两个不独立的新变量，$J=0$。\n- 只化二阶主部，不补低阶项。\n- 不能只看 $C=1$ 判椭圆，要算 $B^2-AC$。\n- 最后没把主部除成标准系数。\n- 三变量题矩阵非对角元没取半。","x":440,"y":1000,"width":360,"height":390,"color":"1"},
+		{"id":"ce0d7f91a3b5c6e8","type":"text","text":"## 最小复习动作\n\n先独立完成 `习题2-2`：\n\n1. 每题先写主部和判别式。\n2. 变系数题先画区域 / 退化线。\n3. 写出 $\\xi,\\eta$ 和 $J$。\n4. 时间够再补完整低阶项。\n5. 对照参考答案查第一处错误。\n\n错题只记“错误模式 + 修正规则”。","x":-760,"y":1640,"width":360,"height":260,"color":"2"},
+		{"id":"ef06283ccd4e7f91","type":"text","text":"## 资料阅读顺序\n\n1. 先看完整笔记。\n2. 再独立做 `习题2-2`。\n3. 做完看参考答案。\n4. 课件只用于核对分类、标准型和多变量二次型。","x":-760,"y":1930,"width":360,"height":260,"color":"3"},
+		{"id":"df1e8092b4c6d7f9","type":"file","file":"notes/第02章-二阶方程分类与标准型.md","x":-360,"y":1580,"width":330,"height":230},
+		{"id":"e02f91a3c5d7e809","type":"file","file":"raw/作业/第02章/习题2-2.md","x":0,"y":1580,"width":330,"height":230},
+		{"id":"f130a2b4d6e8091a","type":"file","file":"raw/作业/第02章/参考答案/习题2-2参考答案.md","x":360,"y":1580,"width":330,"height":230},
+		{"id":"a241b3c5e7f91a3c","type":"file","file":"raw/slides/07-第02章-两个自变量二阶方程的分类.pdf","x":-360,"y":1840,"width":330,"height":230},
+		{"id":"b352c4d6f8092b4d","type":"file","file":"raw/slides/08-第02章-两个自变量二阶方程的标准型.pdf","x":0,"y":1840,"width":330,"height":230},
+		{"id":"c463d5e7091a3c5e","type":"file","file":"raw/slides/09-第02章-多个自变量方程的分类.pdf","x":360,"y":1840,"width":330,"height":230}
+	],
+	"edges":[
+		{"id":"d574e6f8102b4d60","fromNode":"02a1c3e5f709b1d3","fromSide":"right","toNode":"24c3e5f7192b4d60","toSide":"left","color":"4"},
+		{"id":"e685f709213c5e71","fromNode":"24c3e5f7192b4d60","fromSide":"right","toNode":"35d4f6082a3c5e71","toSide":"left","color":"3"},
+		{"id":"f796081a324d6082","fromNode":"35d4f6082a3c5e71","fromSide":"right","toNode":"8ac93b5d7f6082a4","toSide":"left","color":"2"},
+		{"id":"a8a7192b435e7193","fromNode":"8ac93b5d7f6082a4","fromSide":"bottom","toNode":"13b2d4f6081a3c5e","toSide":"top","color":"4","label":"进入计算流程"},
+		{"id":"b9b82a3c546f82a4","fromNode":"13b2d4f6081a3c5e","fromSide":"right","toNode":"46e5f7193b4d6082","toSide":"left","color":"4"},
+		{"id":"caca3b4d657093b5","fromNode":"46e5f7193b4d6082","fromSide":"right","toNode":"57f6082a4c5e7193","toSide":"left","color":"6"},
+		{"id":"dbdb4c5e7681a4c6","fromNode":"57f6082a4c5e7193","fromSide":"right","toNode":"79b82a4c6e7193b5","toSide":"left","color":"3"},
+		{"id":"ecec5d6f8792b5d7","fromNode":"79b82a4c6e7193b5","fromSide":"bottom","toNode":"68a7193b5d6082a4","toSide":"top","color":"5","label":"归一化"},
+		{"id":"fdfd6e7088a3c6e8","fromNode":"68a7193b5d6082a4","fromSide":"right","toNode":"9bda4c6e806193b5","toSide":"left","color":"6"},
+		{"id":"a0e07f8199b4d7f9","fromNode":"9bda4c6e806193b5","fromSide":"right","toNode":"aceb5d7f9172a4c6","toSide":"left","color":"4","label":"练题入口"},
+		{"id":"b1f18092aac5e80a","fromNode":"aceb5d7f9172a4c6","fromSide":"right","toNode":"bdfc6e8092a3b5d7","toSide":"left","color":"1","label":"查错"},
+		{"id":"c20291a3bbd6f91b","fromNode":"aceb5d7f9172a4c6","fromSide":"bottom","toNode":"ce0d7f91a3b5c6e8","toSide":"top","color":"2","label":"复习动作"}
+	]
+}
