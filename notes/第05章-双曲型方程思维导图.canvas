@@ -1,0 +1,497 @@
+{
+  "nodes": [
+    {
+      "id": "0501a2b3c4d5e6f7",
+      "type": "group",
+      "x": -1080,
+      "y": 1700,
+      "width": 2400,
+      "height": 850,
+      "label": "来源入口",
+      "color": "3"
+    },
+    {
+      "id": "0502b3c4d5e6f708",
+      "type": "group",
+      "x": -1080,
+      "y": 420,
+      "width": 2400,
+      "height": 620,
+      "label": "2. 再套公式：全直线、半直线、Duhamel",
+      "color": "5"
+    },
+    {
+      "id": "0503c4d5e6f70819",
+      "type": "group",
+      "x": -1080,
+      "y": -280,
+      "width": 2400,
+      "height": 620,
+      "label": "1. 先抓主线：波速、行波、三个区域",
+      "color": "4"
+    },
+    {
+      "id": "0504d5e6f708192a",
+      "type": "group",
+      "x": -1080,
+      "y": 1120,
+      "width": 2400,
+      "height": 500,
+      "label": "3. 最后验算：能量法、作业抓手、考场模板",
+      "color": "6"
+    },
+    {
+      "id": "0510e6f708192a3b",
+      "type": "text",
+      "x": -1040,
+      "y": -200,
+      "width": 430,
+      "height": 380,
+      "text": "# 第05章\n双曲型方程\n\n考试定位：直接考的是一维波动方程的计算题和能量法证明题。\n\n主线口令：\n\n$$\n\\text{波速 }a\\to\\text{d'Alembert}\\to\\text{三个区域}\\to\\text{奇偶延拓}\\to\\text{Duhamel}\\to\\text{能量法}\n$$\n\n先做 `习题5-1` 第 4、5 题，再做 `习题5-3` 第 2、3、5 题。",
+      "color": "5"
+    },
+    {
+      "id": "0511f708192a3b4c",
+      "type": "text",
+      "x": -560,
+      "y": -200,
+      "width": 430,
+      "height": 380,
+      "text": "## 特征线到行波\n\n标准方程：\n\n$$\nu_{tt}-a^2u_{xx}=0\n$$\n\n取特征变量：\n\n$$\n\\xi=x+at,\\quad \\eta=x-at\n$$\n\n得到：\n\n$$\nu_{\\xi\\eta}=0\n$$\n\n所以：\n\n$$\nu=F(x-at)+G(x+at)\n$$\n\n这一步解释为什么解是两个相反方向传播的行波。",
+      "color": "4"
+    },
+    {
+      "id": "05120718293a4b5d",
+      "type": "text",
+      "x": -80,
+      "y": -200,
+      "width": 430,
+      "height": 380,
+      "text": "## d'Alembert 公式\n\nCauchy 问题：\n\n$$\nu(x,0)=\\varphi(x),\\quad u_t(x,0)=\\psi(x)\n$$\n\n答案：\n\n$$\nu(x,t)=\\frac12[\\varphi(x-at)+\\varphi(x+at)]\n+\\frac1{2a}\\int_{x-at}^{x+at}\\psi(s)\\,ds\n$$\n\n盯防：$\\varphi$ 是端点平均，$\\psi$ 才积分，积分前有 $1/(2a)$。",
+      "color": "2"
+    },
+    {
+      "id": "051318293a4b5c6e",
+      "type": "text",
+      "x": 400,
+      "y": -200,
+      "width": 430,
+      "height": 380,
+      "text": "## 三个区域\n\n点 $(x,t)$ 的依赖区间：\n\n$$\n[x-at,x+at]\n$$\n\n初始段 $[x_1,x_2]$ 的决定区域：\n\n$$\nx_1+at\\le x\\le x_2-at\n$$\n\n影响区域：\n\n$$\nx_1-at\\le x\\le x_2+at\n$$\n\n判断口令：依赖从点往下；决定是向内三角形；影响是向外张开区域。",
+      "color": "6"
+    },
+    {
+      "id": "0514293a4b5c6d7f",
+      "type": "text",
+      "x": 880,
+      "y": -200,
+      "width": 430,
+      "height": 380,
+      "text": "## 方法关系辨析\n\n- 标准一维波动方程：优先用 d'Alembert。\n- 一般二阶双曲型：回到第二章特征线和标准型。\n- 行波法：帮助理解公式来源，不替代考场模板。\n- 积分变换：本章只作补充了解。\n\n`习题5-1` 第 1、2 题更接近第二章；第 4、5 题才是本章 d'Alembert 与区域题。",
+      "color": "1"
+    },
+    {
+      "id": "05203a4b5c6d7e80",
+      "type": "text",
+      "x": -1040,
+      "y": 500,
+      "width": 430,
+      "height": 420,
+      "text": "## 全直线 Cauchy 模板\n\n1. 化成 $u_{tt}-a^2u_{xx}=0$。\n2. 读出波速 $a$，不要把 $a^2$ 当 $a$。\n3. 写 d'Alembert 公式。\n4. 代入 $\\varphi,\\psi$。\n5. 若只问区域，直接用 $[x-at,x+at]$。\n\n最小练习：`习题5-1` 第 4、5 题。",
+      "color": "5"
+    },
+    {
+      "id": "05214b5c6d7e8f91",
+      "type": "text",
+      "x": -560,
+      "y": 500,
+      "width": 430,
+      "height": 420,
+      "text": "## 半直线奇偶延拓\n\n半直线 $x>0$ 先延拓成全直线问题。\n\n| 边界 | 延拓 | 记法 |\n| --- | --- | --- |\n| $u(0,t)=0$ | 奇延拓 | 端点值为 0 |\n| $u_x(0,t)=0$ | 偶延拓 | 端点斜率为 0 |\n\n统一公式：\n\n$$\nu=\\frac12[\\Phi(x-at)+\\Phi(x+at)]\n+\\frac1{2a}\\int_{x-at}^{x+at}\\Psi(s)ds\n$$\n\n最后按 $x\\ge at$ 和 $0<x<at$ 分段。",
+      "color": "4"
+    },
+    {
+      "id": "05225c6d7e8f902a",
+      "type": "text",
+      "x": -80,
+      "y": 500,
+      "width": 430,
+      "height": 420,
+      "text": "## 非齐次 Duhamel\n\n全直线问题：\n\n$$\nu_{tt}-a^2u_{xx}=f(x,t)\n$$\n\n写成：\n\n$$\nu=u_{\\text{初值}}+u_{\\text{源项}}\n$$\n\n源项：\n\n$$\n\\frac1{2a}\\int_0^t\\int_{x-a(t-\\tau)}^{x+a(t-\\tau)}f(\\xi,\\tau)d\\xi d\\tau\n$$\n\n易错：传播时间是 $t-\\tau$，不是 $\\tau$。",
+      "color": "6"
+    },
+    {
+      "id": "05236d7e8f901a3b",
+      "type": "text",
+      "x": 400,
+      "y": 500,
+      "width": 430,
+      "height": 420,
+      "text": "## 积分变换的位置\n\n外部 PPT 的 Fourier / Laplace / 积分变换不要升为本章主线。\n\n本章考试优先级：\n\n1. d'Alembert 公式。\n2. 区域判断。\n3. 奇偶延拓。\n4. Duhamel 模板。\n5. 能量法。\n\n积分变换只帮助理解另一种推导，不作为第一轮训练重点。",
+      "color": "3"
+    },
+    {
+      "id": "05247e8f901a2b4c",
+      "type": "text",
+      "x": 880,
+      "y": 500,
+      "width": 430,
+      "height": 420,
+      "text": "## 与前后章衔接\n\n第02章：一般双曲型方程先走特征线、特征变量、标准型。\n\n第03章：有限区间波动可回到本征函数展开。\n\n第04章：非齐次边界先齐次化，再接 Duhamel 或分离变量。\n\n本章只把一维全直线和半直线公式练熟，不把所有边界题都硬套全直线公式。",
+      "color": "2"
+    },
+    {
+      "id": "05308f901a2b3c5d",
+      "type": "text",
+      "x": -1040,
+      "y": 1190,
+      "width": 430,
+      "height": 360,
+      "text": "## 能量法总流程\n\n构造：\n\n$$\nE(t)=\\frac12\\int_\\Omega (u_t^2+a^2|\\nabla u|^2)dx\n$$\n\n证明题固定动作：\n\n1. 唯一性先作差 $w=u_1-u_2$。\n2. 方程乘 $w_t$。\n3. 对区域积分。\n4. 分部积分处理边界项。\n5. 得到 $E_w'(t)\\le0$ 或 $E_w'(t)=0$。\n6. 用 $E_w(0)=0$ 收尾。",
+      "color": "6"
+    },
+    {
+      "id": "0531a901b2c3d6e0",
+      "type": "text",
+      "x": -560,
+      "y": 1190,
+      "width": 430,
+      "height": 360,
+      "text": "## Robin / 阻尼边界\n\nRobin 唯一性题常要把边界项并进修正能量。\n\n阻尼边界：\n\n$$\n\\frac{\\partial u}{\\partial\\nu}+\\sigma u_t=0\n$$\n\n给出：\n\n$$\n\\frac{\\partial u}{\\partial\\nu}=-\\sigma u_t\n$$\n\n所以边界耗散项是负号。盯防：Dirichlet 边界上能用的是 $u_t=0$，不是法向导数为 0。",
+      "color": "1"
+    },
+    {
+      "id": "0532b012c3d4e7f1",
+      "type": "text",
+      "x": -80,
+      "y": 1190,
+      "width": 430,
+      "height": 360,
+      "text": "## 习题 5-1 抓手\n\n第 1、2 题：回看第二章特征线法，不要强套 d'Alembert。\n\n第 4 题：波速 $a=2$，重点区分依赖、决定、影响区域。\n\n第 5 题：判断点是否落在影响区域；画两族特征线最快。\n\n练题顺序：先 4、5，再回头处理 1、2。",
+      "color": "4"
+    },
+    {
+      "id": "0533c123d4e5f802",
+      "type": "text",
+      "x": 400,
+      "y": 1190,
+      "width": 430,
+      "height": 360,
+      "text": "## 习题 5-3 抓手\n\n第 2 题：Robin 边界唯一性，注意左端点符号和边界能量项。\n\n第 3 题：阻尼项给 $E'(t)\\le0$，再用作差证明唯一性。\n\n第 5 题：边界阻尼能量衰减，法向导数条件代入后是负耗散。\n\n共同模板：作差、乘 $w_t$、分部积分、能量非负。",
+      "color": "5"
+    },
+    {
+      "id": "0534d234e5f60913",
+      "type": "text",
+      "x": 880,
+      "y": 1190,
+      "width": 430,
+      "height": 360,
+      "text": "## 易错与最小复习动作\n\n易错前三：\n\n- $u_{tt}-4u_{xx}=0$ 中 $a=2$。\n- 决定区域和影响区域写反。\n- 能量法边界项符号错。\n\n最小闭环：\n\n1. 默写 d'Alembert。\n2. 画一个依赖三角形。\n3. 写 Dirichlet 奇、Neumann 偶。\n4. 写 Duhamel 源项。\n5. 背能量法 6 步。",
+      "color": "2"
+    },
+    {
+      "id": "0540e345f6071a24",
+      "type": "text",
+      "x": -1040,
+      "y": 1780,
+      "width": 520,
+      "height": 330,
+      "text": "## 来源阅读顺序\n\n1. 先看第05章笔记第 0、3、4、10、14 节。\n2. 做 `习题5-1` 第 4、5 题。\n3. 看 slides 20、22、23、24、25 核对公式和区域图。\n4. 做 `习题5-3` 第 2、3、5 题。\n5. 外部 PPT 只吸收 p6-p11 的推导路径；p13-p19 作特征线参考；p22-p50 的积分变换降级。",
+      "color": "3"
+    },
+    {
+      "id": "0541f45607182b35",
+      "type": "file",
+      "x": -470,
+      "y": 1780,
+      "width": 330,
+      "height": 220,
+      "file": "notes/第05章-双曲型方程.md"
+    },
+    {
+      "id": "05420718293a3c46",
+      "type": "file",
+      "x": -100,
+      "y": 1780,
+      "width": 330,
+      "height": 220,
+      "file": "raw/作业/第05章/习题5-1.md"
+    },
+    {
+      "id": "054318293a4b4d57",
+      "type": "file",
+      "x": 270,
+      "y": 1780,
+      "width": 330,
+      "height": 220,
+      "file": "raw/作业/第05章/习题5-3.md"
+    },
+    {
+      "id": "0544293a4b5c5e68",
+      "type": "file",
+      "x": 640,
+      "y": 1780,
+      "width": 330,
+      "height": 220,
+      "file": "raw/slides/20-第05章-第01节-一维波动方程-Cauchy问题求解.pdf"
+    },
+    {
+      "id": "05453a4b5c6d6f79",
+      "type": "file",
+      "x": 1010,
+      "y": 1780,
+      "width": 330,
+      "height": 220,
+      "file": "raw/slides/22-第05章-第01节-d'Alembert公式的物理意义和几何解释.pdf"
+    },
+    {
+      "id": "05464b5c6d7e708a",
+      "type": "file",
+      "x": -470,
+      "y": 2050,
+      "width": 330,
+      "height": 220,
+      "file": "raw/slides/23-第05章-第01节-一维波动方程的依赖区域-决定区域-影响区域.pdf"
+    },
+    {
+      "id": "05475c6d7e8f819b",
+      "type": "file",
+      "x": -100,
+      "y": 2050,
+      "width": 330,
+      "height": 220,
+      "file": "raw/slides/24-第05章-第01节-半直线齐次波动方程的混合问题.pdf"
+    },
+    {
+      "id": "05486d7e8f9022ac",
+      "type": "file",
+      "x": 270,
+      "y": 2050,
+      "width": 330,
+      "height": 220,
+      "file": "raw/slides/25-第05章-第01节-非齐次波动方程的Cauchy问题.pdf"
+    },
+    {
+      "id": "05497e8f901a33bd",
+      "type": "file",
+      "x": 640,
+      "y": 2050,
+      "width": 330,
+      "height": 220,
+      "file": "notes/第02章-二阶方程分类与标准型.md"
+    },
+    {
+      "id": "054a8f901a2b44ce",
+      "type": "file",
+      "x": 1010,
+      "y": 2050,
+      "width": 330,
+      "height": 220,
+      "file": "notes/第04章-齐次化方法.md"
+    },
+    {
+      "id": "054b901a2b3c55df",
+      "type": "text",
+      "x": -1040,
+      "y": 2190,
+      "width": 520,
+      "height": 260,
+      "text": "## 外部 PPT 用法\n\n`/Users/eliosun/scut/斐多课堂 数学物理方程/数学物理方程不挂科-3-行波法与积分变换法.pdf`\n\n只作为补充资料：\n\n- p6-p11：行波法推导，可帮助理解 d'Alembert。\n- p13-p19：一般特征线题，辅助 `习题5-1` 第 1、2 题。\n- p22-p50：Fourier / Laplace / 积分变换，第一轮不主攻。",
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "0550a1b2c3d4e6f8",
+      "fromNode": "0510e6f708192a3b",
+      "fromSide": "right",
+      "toNode": "0511f708192a3b4c",
+      "toSide": "left",
+      "color": "4"
+    },
+    {
+      "id": "0551b2c3d4e5f709",
+      "fromNode": "0511f708192a3b4c",
+      "fromSide": "right",
+      "toNode": "05120718293a4b5d",
+      "toSide": "left",
+      "color": "4",
+      "label": "初值确定"
+    },
+    {
+      "id": "0552c3d4e5f6071a",
+      "fromNode": "05120718293a4b5d",
+      "fromSide": "right",
+      "toNode": "051318293a4b5c6e",
+      "toSide": "left",
+      "color": "6",
+      "label": "几何解释"
+    },
+    {
+      "id": "0553d4e5f607182b",
+      "fromNode": "051318293a4b5c6e",
+      "fromSide": "right",
+      "toNode": "0514293a4b5c6d7f",
+      "toSide": "left",
+      "color": "1",
+      "label": "别误判"
+    },
+    {
+      "id": "0554e5f60718293c",
+      "fromNode": "05120718293a4b5d",
+      "fromSide": "bottom",
+      "toNode": "05203a4b5c6d7e80",
+      "toSide": "top",
+      "color": "5",
+      "label": "套公式"
+    },
+    {
+      "id": "0555f60718293a4d",
+      "fromNode": "05203a4b5c6d7e80",
+      "fromSide": "right",
+      "toNode": "05214b5c6d7e8f91",
+      "toSide": "left",
+      "color": "4",
+      "label": "半直线"
+    },
+    {
+      "id": "05560718293a4b5e",
+      "fromNode": "05203a4b5c6d7e80",
+      "fromSide": "right",
+      "toNode": "05225c6d7e8f902a",
+      "toSide": "left",
+      "color": "6",
+      "label": "非齐次"
+    },
+    {
+      "id": "055718293a4b5c6f",
+      "fromNode": "05225c6d7e8f902a",
+      "fromSide": "right",
+      "toNode": "05236d7e8f901a3b",
+      "toSide": "left",
+      "color": "3",
+      "label": "补充"
+    },
+    {
+      "id": "0558293a4b5c6d70",
+      "fromNode": "05236d7e8f901a3b",
+      "fromSide": "right",
+      "toNode": "05247e8f901a2b4c",
+      "toSide": "left",
+      "color": "2"
+    },
+    {
+      "id": "05593a4b5c6d7e81",
+      "fromNode": "05247e8f901a2b4c",
+      "fromSide": "bottom",
+      "toNode": "05308f901a2b3c5d",
+      "toSide": "top",
+      "color": "6",
+      "label": "证明线"
+    },
+    {
+      "id": "055a4b5c6d7e8f92",
+      "fromNode": "05308f901a2b3c5d",
+      "fromSide": "right",
+      "toNode": "0531a901b2c3d6e0",
+      "toSide": "left",
+      "color": "1",
+      "label": "边界项"
+    },
+    {
+      "id": "055b5c6d7e8f903a",
+      "fromNode": "0514293a4b5c6d7f",
+      "fromSide": "bottom",
+      "toNode": "0532b012c3d4e7f1",
+      "toSide": "top",
+      "color": "4",
+      "label": "练题"
+    },
+    {
+      "id": "055c6d7e8f901a4b",
+      "fromNode": "0531a901b2c3d6e0",
+      "fromSide": "right",
+      "toNode": "0533c123d4e5f802",
+      "toSide": "left",
+      "color": "5",
+      "label": "练题"
+    },
+    {
+      "id": "055d7e8f901a2b5c",
+      "fromNode": "0532b012c3d4e7f1",
+      "fromSide": "right",
+      "toNode": "0534d234e5f60913",
+      "toSide": "left",
+      "color": "2",
+      "label": "查错"
+    },
+    {
+      "id": "055e8f901a2b3c6d",
+      "fromNode": "0533c123d4e5f802",
+      "fromSide": "right",
+      "toNode": "0534d234e5f60913",
+      "toSide": "left",
+      "color": "2",
+      "label": "查错"
+    },
+    {
+      "id": "055f901a2b3c4d7e",
+      "fromNode": "0534d234e5f60913",
+      "fromSide": "bottom",
+      "toNode": "0540e345f6071a24",
+      "toSide": "top",
+      "color": "3",
+      "label": "资料核对"
+    },
+    {
+      "id": "056001a2b3c4d5e8",
+      "fromNode": "0540e345f6071a24",
+      "fromSide": "right",
+      "toNode": "0541f45607182b35",
+      "toSide": "left",
+      "color": "3"
+    },
+    {
+      "id": "056112b3c4d5e6f9",
+      "fromNode": "0540e345f6071a24",
+      "fromSide": "right",
+      "toNode": "05420718293a3c46",
+      "toSide": "left",
+      "color": "4"
+    },
+    {
+      "id": "056223c4d5e6f70a",
+      "fromNode": "0540e345f6071a24",
+      "fromSide": "right",
+      "toNode": "054318293a4b4d57",
+      "toSide": "left",
+      "color": "5"
+    },
+    {
+      "id": "056334d5e6f7081b",
+      "fromNode": "0540e345f6071a24",
+      "fromSide": "right",
+      "toNode": "0544293a4b5c5e68",
+      "toSide": "left",
+      "color": "5"
+    },
+    {
+      "id": "056445e6f708192c",
+      "fromNode": "0540e345f6071a24",
+      "fromSide": "right",
+      "toNode": "05453a4b5c6d6f79",
+      "toSide": "left",
+      "color": "6"
+    },
+    {
+      "id": "056556f708192a3d",
+      "fromNode": "0540e345f6071a24",
+      "fromSide": "bottom",
+      "toNode": "054b901a2b3c55df",
+      "toSide": "top",
+      "color": "6",
+      "label": "外部补充"
+    }
+  ]
+}
