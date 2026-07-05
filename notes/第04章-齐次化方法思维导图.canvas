@@ -1,366 +1,43 @@
 {
-  "nodes": [
-    {
-      "id": "a4c01d2e3f5b7890",
-      "type": "group",
-      "x": -820,
-      "y": 1510,
-      "width": 1700,
-      "height": 760,
-      "label": "来源入口",
-      "color": "3"
-    },
-    {
-      "id": "b5d12e3f4a6c8901",
-      "type": "group",
-      "x": -820,
-      "y": 330,
-      "width": 1700,
-      "height": 600,
-      "label": "2. 再齐次化：边界先归零，方程和初值同步改",
-      "color": "5"
-    },
-    {
-      "id": "c6e23f4a5b7d9012",
-      "type": "group",
-      "x": -820,
-      "y": -260,
-      "width": 1700,
-      "height": 520,
-      "label": "1. 先识别：三种非齐次与本章定位",
-      "color": "4"
-    },
-    {
-      "id": "d7f34a5b6c8e0123",
-      "type": "group",
-      "x": -820,
-      "y": 1010,
-      "width": 1700,
-      "height": 430,
-      "label": "3. 最后求解：Duhamel 接回第03章分离变量",
-      "color": "6"
-    },
-    {
-      "id": "e8051b2c3d4f6789",
-      "type": "text",
-      "x": -760,
-      "y": -180,
-      "width": 360,
-      "height": 300,
-      "text": "# 第04章\n齐次化方法\n\n考试定位：第四章不直接考，作为工具储备。\n\n考场口令：\n\n$$\n\\text{边界非齐次}\\to w\\to v=u-w\\to\\text{零边界}\\to\\text{第03章/ Duhamel}\n$$\n\n目标：会处理 `习题4-3`，不做证明展开。",
-      "color": "5"
-    },
-    {
-      "id": "f9162c3d4e5a7890",
-      "type": "text",
-      "x": -360,
-      "y": -180,
-      "width": 360,
-      "height": 300,
-      "text": "## 齐次化目的\n\n把“不为 0 的边界/右端”转成第三章会做的零边界问题。\n\n核心不是求答案，而是改题型：\n\n$$\nw(0,t)=\\mu_1(t),\\quad w(l,t)=\\mu_2(t)\n$$\n\n$$\nv=u-w,\\quad v(0,t)=v(l,t)=0\n$$\n\n易错：只改边界，不改方程和初值。",
-      "color": "4"
-    },
-    {
-      "id": "0a273d4e5f6b8901",
-      "type": "text",
-      "x": 40,
-      "y": -180,
-      "width": 360,
-      "height": 300,
-      "text": "## 三种非齐次\n\n| 类型 | 进哪里 | 易错 |\n| --- | --- | --- |\n| 初值 $\\varphi,\\psi$ | $A_n,B_n$ | 当成源项 |\n| 方程右端 $f$ | $F_n(t)$ 与 Duhamel | 漏 $\\tau$ |\n| 边界 $\\mu_1,\\mu_2$ | 先造 $w$ | 直接展开 $u$ |\n\n`习题4-3` 三种同时出现，必须先处理边界。",
-      "color": "2"
-    },
-    {
-      "id": "1b384e5f6a7c9012",
-      "type": "text",
-      "x": 440,
-      "y": -180,
-      "width": 360,
-      "height": 300,
-      "text": "## Cauchy 问题直觉\n\n非齐次波动：\n\n$$\nu_{tt}-a^2\\Delta u=f(x,t)\n$$\n\n可拆成：\n\n- 初始状态造成的齐次解。\n- 外力 $f$ 连续激发的零初值解。\n\nDuhamel：时刻 $\\tau$ 的源项像“瞬时初速度”，传播到 $t$ 后再积分。",
-      "color": "6"
-    },
-    {
-      "id": "2c495f6a7b8d0123",
-      "type": "text",
-      "x": -760,
-      "y": 400,
-      "width": 360,
-      "height": 410,
-      "text": "## 边界齐次化\n\nDirichlet 边界：\n\n$$\nu(0,t)=\\mu_1(t),\\quad u(l,t)=\\mu_2(t)\n$$\n\n取：\n\n$$\nw(x,t)=\\mu_1(t)+\\frac{x}{l}(\\mu_2(t)-\\mu_1(t))\n$$\n\n令 $v=u-w$，得到：\n\n$$\nv(0,t)=v(l,t)=0\n$$\n\n先不要展开 $u$；正弦基只自动满足零端点。",
-      "color": "4"
-    },
-    {
-      "id": "3d5a607b8c9e1234",
-      "type": "text",
-      "x": -360,
-      "y": 400,
-      "width": 360,
-      "height": 410,
-      "text": "## 同步改写\n\n由 $u=v+w$：\n\n$$\nv_{tt}-a^2v_{xx}=f-w_{tt}+a^2w_{xx}\n$$\n\n$$\nv(x,0)=\\varphi(x)-w(x,0)\n$$\n\n$$\nv_t(x,0)=\\psi(x)-w_t(x,0)\n$$\n\n扣分点：$w$ 若含 $t$，不能漏 $w_t,w_{tt}$；最后也不能忘 $u=v+w$。",
-      "color": "3"
-    },
-    {
-      "id": "4e6b718c9d0f2345",
-      "type": "text",
-      "x": 40,
-      "y": 400,
-      "width": 360,
-      "height": 410,
-      "text": "## 混合问题模板\n\n齐次化后目标是：\n\n$$\n\\begin{cases}\nv_{tt}-a^2v_{xx}=f_1(x,t),\\\\\nv(x,0)=\\varphi_1(x),\\quad v_t(x,0)=\\psi_1(x),\\\\\nv(0,t)=v(l,t)=0.\n\\end{cases}\n$$\n\n之后分两块：\n\n- 齐次方程 + 新初值。\n- 零初值 + 源项 $f_1$。",
-      "color": "5"
-    },
-    {
-      "id": "5f7c829d0e1a3456",
-      "type": "text",
-      "x": 440,
-      "y": 400,
-      "width": 360,
-      "height": 410,
-      "text": "## 与第03章衔接\n\n边界归零后直接回到分离变量：\n\n$$\nX_n(x)=\\sin\\frac{n\\pi x}{l},\\quad \\omega_n=\\frac{an\\pi}{l}\n$$\n\n$$\nv=\\sum q_n(t)\\sin\\frac{n\\pi x}{l}\n$$\n\n初值决定 $A_n,B_n$；源项决定 $F_n(t)$。这就是第四章服务第三章的地方。",
-      "color": "6"
-    },
-    {
-      "id": "6a8d93ae1f2b4567",
-      "type": "text",
-      "x": -760,
-      "y": 1080,
-      "width": 360,
-      "height": 280,
-      "text": "## Duhamel 原理\n\n零初值源项问题：每个过去时刻 $\\tau$ 解一个齐次问题：\n\n$$\nw_{tt}-a^2w_{xx}=0,\\quad w|_{t=\\tau}=0,\\quad w_t|_{t=\\tau}=f_1(x,\\tau)\n$$\n\n叠加：\n\n$$\nv_2(x,t)=\\int_0^t w(x,t,\\tau)d\\tau\n$$",
-      "color": "5"
-    },
-    {
-      "id": "7b9ea4bf203c5678",
-      "type": "text",
-      "x": -360,
-      "y": 1080,
-      "width": 360,
-      "height": 280,
-      "text": "## 方程非齐次处理\n\n有限区间零边界模板：\n\n$$\nv=\\sum_{n=1}^{\\infty}\\left(A_n\\cos\\omega_nt+B_n\\sin\\omega_nt+\\frac1{\\omega_n}\\int_0^tF_n(\\tau)\\sin\\omega_n(t-\\tau)d\\tau\\right)X_n\n$$\n\n易错：Duhamel 项是 $t-\\tau$，前面有 $1/\\omega_n$。",
-      "color": "6"
-    },
-    {
-      "id": "8cafb5c0314d6789",
-      "type": "text",
-      "x": 40,
-      "y": 1080,
-      "width": 360,
-      "height": 280,
-      "text": "## 习题4-3抓手\n\n原题：$a=4,l=\\pi$。\n\n先取：\n\n$$\nw=\\pi+x+t,\\quad v=u-w\n$$\n\n得到：\n\n$$\nv_{tt}-16v_{xx}=\\frac12(\\pi-x)t\n$$\n\n$$\nv(x,0)=-2x,\\quad v_t(x,0)=0\n$$\n\n$$\nA_n=\\frac{4(-1)^n}{n},\\quad F_n(t)=\\frac{t}{n}\n$$",
-      "color": "4"
-    },
-    {
-      "id": "9dc0c6d1425e7890",
-      "type": "text",
-      "x": 440,
-      "y": 1080,
-      "width": 360,
-      "height": 280,
-      "text": "## 易错与回代\n\n- 边界非齐次时直接展开 $u$。\n- 漏改 $f_1,\\varphi_1,\\psi_1$。\n- 把 $F_n(t)$ 直接塞进积分，不换成 $F_n(\\tau)$。\n- 忘记最后写 $u=v+w$。\n- `习题4-3` 角点不相容：先说明，再给内部级数形式。",
-      "color": "1"
-    },
-    {
-      "id": "aec1d7e2536f8901",
-      "type": "text",
-      "x": -760,
-      "y": 1640,
-      "width": 360,
-      "height": 290,
-      "text": "## 最小复习动作\n\n1. 默写 $w$、$v=u-w$。\n2. 写出 $f_1,\\varphi_1,\\psi_1$。\n3. 判断能否用正弦基。\n4. 写 Duhamel 项：$F_n(\\tau)$ 与 $t-\\tau$。\n5. 重做 `习题4-3` 第 1(1) 题。\n6. 最后一行检查：$u=v+w$。",
-      "color": "2"
-    },
-    {
-      "id": "bfd2e8f3647a9012",
-      "type": "text",
-      "x": -760,
-      "y": 1970,
-      "width": 360,
-      "height": 220,
-      "text": "## 来源阅读顺序\n\n1. 先看第04章笔记第 10、11、14 节。\n2. 对照 `习题4-3` 只抓第 1(1) 题。\n3. 第19讲看边界齐次化和混合问题 Duhamel。\n4. 第18讲看 Cauchy 问题 Duhamel 直觉。\n5. 第02章 Canvas 只作为布局风格参考。",
-      "color": "3"
-    },
-    {
-      "id": "c0e3f9a4758b0123",
-      "type": "file",
-      "x": -360,
-      "y": 1580,
-      "width": 330,
-      "height": 230,
-      "file": "notes/第04章-齐次化方法.md"
-    },
-    {
-      "id": "d1f40ab5869c1234",
-      "type": "file",
-      "x": 0,
-      "y": 1580,
-      "width": 330,
-      "height": 230,
-      "file": "raw/作业/第04章/习题4-3.md"
-    },
-    {
-      "id": "e2051bc697ad2345",
-      "type": "file",
-      "x": 360,
-      "y": 1580,
-      "width": 330,
-      "height": 230,
-      "file": "raw/slides/18-第04章-Duhamel原理-Cauchy问题.pdf"
-    },
-    {
-      "id": "f3162cd7a8be3456",
-      "type": "file",
-      "x": -360,
-      "y": 1850,
-      "width": 330,
-      "height": 230,
-      "file": "raw/slides/19-第04章-Duhamel原理-混合问题.pdf"
-    },
-    {
-      "id": "04273de8b9cf4567",
-      "type": "file",
-      "x": 0,
-      "y": 1850,
-      "width": 330,
-      "height": 230,
-      "file": "notes/第02章-二阶方程分类与标准型思维导图.canvas"
-    }
-  ],
-  "edges": [
-    {
-      "id": "15384ef9cad05678",
-      "fromNode": "e8051b2c3d4f6789",
-      "fromSide": "right",
-      "toNode": "f9162c3d4e5a7890",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "color": "4"
-    },
-    {
-      "id": "26495f0adbe16789",
-      "fromNode": "f9162c3d4e5a7890",
-      "fromSide": "right",
-      "toNode": "0a273d4e5f6b8901",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "color": "3"
-    },
-    {
-      "id": "375a601bcef27890",
-      "fromNode": "0a273d4e5f6b8901",
-      "fromSide": "right",
-      "toNode": "1b384e5f6a7c9012",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "方程非齐次",
-      "color": "6"
-    },
-    {
-      "id": "486b712cdf038901",
-      "fromNode": "0a273d4e5f6b8901",
-      "fromSide": "bottom",
-      "toNode": "2c495f6a7b8d0123",
-      "toSide": "top",
-      "toEnd": "arrow",
-      "label": "边界先处理",
-      "color": "4"
-    },
-    {
-      "id": "597c823def149012",
-      "fromNode": "2c495f6a7b8d0123",
-      "fromSide": "right",
-      "toNode": "3d5a607b8c9e1234",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "color": "3"
-    },
-    {
-      "id": "6a8d934ef025a123",
-      "fromNode": "3d5a607b8c9e1234",
-      "fromSide": "right",
-      "toNode": "4e6b718c9d0f2345",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "得到零边界",
-      "color": "5"
-    },
-    {
-      "id": "7b9ea45f0136b234",
-      "fromNode": "4e6b718c9d0f2345",
-      "fromSide": "right",
-      "toNode": "5f7c829d0e1a3456",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "color": "6"
-    },
-    {
-      "id": "8cafb5601247c345",
-      "fromNode": "5f7c829d0e1a3456",
-      "fromSide": "bottom",
-      "toNode": "6a8d93ae1f2b4567",
-      "toSide": "top",
-      "toEnd": "arrow",
-      "label": "源项交给 Duhamel",
-      "color": "5"
-    },
-    {
-      "id": "9dc0c6712358d456",
-      "fromNode": "6a8d93ae1f2b4567",
-      "fromSide": "right",
-      "toNode": "7b9ea4bf203c5678",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "color": "6"
-    },
-    {
-      "id": "aec1d7823469e567",
-      "fromNode": "7b9ea4bf203c5678",
-      "fromSide": "right",
-      "toNode": "8cafb5c0314d6789",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "套到作业",
-      "color": "4"
-    },
-    {
-      "id": "bfd2e893457af678",
-      "fromNode": "8cafb5c0314d6789",
-      "fromSide": "right",
-      "toNode": "9dc0c6d1425e7890",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "查错",
-      "color": "1"
-    },
-    {
-      "id": "c0e3f9a4568b0789",
-      "fromNode": "9dc0c6d1425e7890",
-      "fromSide": "bottom",
-      "toNode": "aec1d7e2536f8901",
-      "toSide": "top",
-      "toEnd": "arrow",
-      "label": "复习动作",
-      "color": "2"
-    },
-    {
-      "id": "d1f40ab5679c1890",
-      "fromNode": "aec1d7e2536f8901",
-      "fromSide": "bottom",
-      "toNode": "bfd2e8f3647a9012",
-      "toSide": "top",
-      "toEnd": "arrow",
-      "label": "阅读顺序",
-      "color": "3"
-    },
-    {
-      "id": "e2051bc678ad2901",
-      "fromNode": "bfd2e8f3647a9012",
-      "fromSide": "right",
-      "toNode": "c0e3f9a4758b0123",
-      "toSide": "left",
-      "toEnd": "arrow",
-      "label": "主笔记",
-      "color": "5"
-    }
-  ]
+	"nodes":[
+		{"id":"a4c01d2e3f5b7890","type":"group","x":-820,"y":1510,"width":1700,"height":760,"color":"3","label":"来源入口"},
+		{"id":"b5d12e3f4a6c8901","type":"group","x":-820,"y":330,"width":1700,"height":600,"color":"5","label":"2. 再齐次化：边界先归零，方程和初值同步改"},
+		{"id":"d7f34a5b6c8e0123","type":"group","x":-820,"y":1010,"width":2100,"height":430,"color":"6","label":"3. 最后求解：Duhamel 接回第03章分离变量"},
+		{"id":"c6e23f4a5b7d9012","type":"group","x":-820,"y":-260,"width":1700,"height":520,"color":"4","label":"1. 先识别：三种非齐次与本章定位"},
+		{"id":"e8051b2c3d4f6789","type":"text","text":"# 第04章\n齐次化方法\n\n考试定位：第四章不直接考，作为工具储备。\n\n考场口令：\n\n$$\n\\text{边界非齐次}\\to w\\to v=u-w\\to\\text{零边界}\\to\\text{第03章/ Duhamel}\n$$\n\n目标：会处理 `习题4-3`，不做证明展开。","x":-760,"y":-180,"width":360,"height":380,"color":"5"},
+		{"id":"f9162c3d4e5a7890","type":"text","text":"## 齐次化目的\n\n把“不为 0 的边界/右端”转成第三章会做的零边界问题。\n\n核心不是求答案，而是改题型：\n\n$$\nw(0,t)=\\mu_1(t),\\quad w(l,t)=\\mu_2(t)\n$$\n\n$$\nv=u-w,\\quad v(0,t)=v(l,t)=0\n$$\n\n易错：只改边界，不改方程和初值。","x":-360,"y":-180,"width":360,"height":300,"color":"4"},
+		{"id":"0a273d4e5f6b8901","type":"text","text":"## 三种非齐次\n\n| 类型 | 进哪里 | 易错 |\n| --- | --- | --- |\n| 初值 $\\varphi,\\psi$ | $A_n,B_n$ | 当成源项 |\n| 方程右端 $f$ | $F_n(t)$ 与 Duhamel | 漏 $\\tau$ |\n| 边界 $\\mu_1,\\mu_2$ | 先造 $w$ | 直接展开 $u$ |\n\n`习题4-3` 三种同时出现，必须先处理边界。","x":40,"y":-180,"width":360,"height":300,"color":"2"},
+		{"id":"1b384e5f6a7c9012","type":"text","text":"## Cauchy 问题直觉\n\n非齐次波动：\n\n$$\nu_{tt}-a^2\\Delta u=f(x,t)\n$$\n\n可拆成：\n\n- 初始状态造成的齐次解。\n- 外力 $f$ 连续激发的零初值解。\n\nDuhamel：时刻 $\\tau$ 的源项像“瞬时初速度”，传播到 $t$ 后再积分。","x":440,"y":-180,"width":360,"height":300,"color":"6"},
+		{"id":"2c495f6a7b8d0123","type":"text","text":"## 边界齐次化\n\nDirichlet 边界：\n\n$$\nu(0,t)=\\mu_1(t),\\quad u(l,t)=\\mu_2(t)\n$$\n\n取：\n\n$$\nw(x,t)=\\mu_1(t)+\\frac{x}{l}(\\mu_2(t)-\\mu_1(t))\n$$\n\n令 $v=u-w$，得到：\n\n$$\nv(0,t)=v(l,t)=0\n$$\n\n先不要展开 $u$；正弦基只自动满足零端点。","x":-760,"y":400,"width":360,"height":410,"color":"4"},
+		{"id":"3d5a607b8c9e1234","type":"text","text":"## 同步改写\n\n由 $u=v+w$：\n\n$$\nv_{tt}-a^2v_{xx}=f-w_{tt}+a^2w_{xx}\n$$\n\n$$\nv(x,0)=\\varphi(x)-w(x,0)\n$$\n\n$$\nv_t(x,0)=\\psi(x)-w_t(x,0)\n$$\n\n扣分点：$w$ 若含 $t$，不能漏 $w_t,w_{tt}$；最后也不能忘 $u=v+w$。","x":-360,"y":400,"width":360,"height":410,"color":"3"},
+		{"id":"4e6b718c9d0f2345","type":"text","text":"## 混合问题模板\n\n齐次化后目标是：\n\n$$\n\\begin{cases}\nv_{tt}-a^2v_{xx}=f_1(x,t),\\\\\nv(x,0)=\\varphi_1(x),\\quad v_t(x,0)=\\psi_1(x),\\\\\nv(0,t)=v(l,t)=0.\n\\end{cases}\n$$\n\n之后分两块：\n\n- 齐次方程 + 新初值。\n- 零初值 + 源项 $f_1$。","x":40,"y":400,"width":360,"height":410,"color":"5"},
+		{"id":"5f7c829d0e1a3456","type":"text","text":"## 与第03章衔接\n\n边界归零后直接回到分离变量：\n\n$$\nX_n(x)=\\sin\\frac{n\\pi x}{l},\\quad \\omega_n=\\frac{an\\pi}{l}\n$$\n\n$$\nv=\\sum q_n(t)\\sin\\frac{n\\pi x}{l}\n$$\n\n初值决定 $A_n,B_n$；源项决定 $F_n(t)$。这就是第四章服务第三章的地方。","x":440,"y":400,"width":360,"height":410,"color":"6"},
+		{"id":"6a8d93ae1f2b4567","type":"text","text":"## Duhamel 原理\n\n零初值源项问题：每个过去时刻 $\\tau$ 解一个齐次问题：\n\n$$\nw_{tt}-a^2w_{xx}=0,\\quad w|_{t=\\tau}=0,\\quad w_t|_{t=\\tau}=f_1(x,\\tau)\n$$\n\n叠加：\n\n$$\nv_2(x,t)=\\int_0^t w(x,t,\\tau)d\\tau\n$$","x":-760,"y":1080,"width":360,"height":280,"color":"5"},
+		{"id":"aec1d7e2536f8901","type":"text","text":"## 最小复习动作\n\n1. 默写 $w$、$v=u-w$。\n2. 写出 $f_1,\\varphi_1,\\psi_1$。\n3. 判断能否用正弦基。\n4. 写 Duhamel 项：$F_n(\\tau)$ 与 $t-\\tau$。\n5. 重做 `习题4-3` 第 1(1) 题。\n6. 最后一行检查：$u=v+w$。","x":-760,"y":1640,"width":360,"height":290,"color":"2"},
+		{"id":"bfd2e8f3647a9012","type":"text","text":"## 来源阅读顺序\n\n1. 先看第04章笔记第 10、11、14 节。\n2. 对照 `习题4-3` 只抓第 1(1) 题。\n3. 第19讲看边界齐次化和混合问题 Duhamel。\n4. 第18讲看 Cauchy 问题 Duhamel 直觉。\n5. 第02章 Canvas 只作为布局风格参考。","x":-760,"y":1970,"width":360,"height":220,"color":"3"},
+		{"id":"c0e3f9a4758b0123","type":"file","file":"notes/第04章-齐次化方法.md","x":-360,"y":1580,"width":330,"height":230},
+		{"id":"d1f40ab5869c1234","type":"file","file":"raw/作业/第04章/习题4-3.md","x":0,"y":1580,"width":330,"height":230},
+		{"id":"e2051bc697ad2345","type":"file","file":"raw/slides/18-第04章-Duhamel原理-Cauchy问题.pdf","x":360,"y":1580,"width":330,"height":230},
+		{"id":"f3162cd7a8be3456","type":"file","file":"raw/slides/19-第04章-Duhamel原理-混合问题.pdf","x":-360,"y":1850,"width":330,"height":230},
+		{"id":"04273de8b9cf4567","type":"file","file":"notes/第02章-二阶方程分类与标准型思维导图.canvas","x":0,"y":1850,"width":330,"height":230},
+		{"id":"7b9ea4bf203c5678","type":"text","text":"## 方程非齐次处理\n\n有限区间零边界模板：\n\n$$\nv=\\sum_{n=1}^{\\infty}\\left(A_n\\cos\\omega_nt+B_n\\sin\\omega_nt+\\frac1{\\omega_n}\\int_0^tF_n(\\tau)\\sin\\omega_n(t-\\tau)d\\tau\\right)X_n\n$$\n\n易错：Duhamel 项是 $t-\\tau$，前面有 $1/\\omega_n$。","x":-300,"y":1080,"width":440,"height":280,"color":"6"},
+		{"id":"8cafb5c0314d6789","type":"text","text":"## 习题4-3抓手\n\n原题：$a=4,l=\\pi$。\n\n先取：\n\n$$\nw=\\pi+x+t,\\quad v=u-w\n$$\n\n得到：\n\n$$\nv_{tt}-16v_{xx}=\\frac12(\\pi-x)t\n$$\n\n$$\nv(x,0)=-2x,\\quad v_t(x,0)=0\n$$\n\n$$\nA_n=\\frac{4(-1)^n}{n},\\quad F_n(t)=\\frac{t}{n}\n$$","x":360,"y":1080,"width":360,"height":340,"color":"4"},
+		{"id":"9dc0c6d1425e7890","type":"text","text":"## 易错与回代\n\n- 边界非齐次时直接展开 $u$。\n- 漏改 $f_1,\\varphi_1,\\psi_1$。\n- 把 $F_n(t)$ 直接塞进积分，不换成 $F_n(\\tau)$。\n- 忘记最后写 $u=v+w$。\n- `习题4-3` 角点不相容：先说明，再给内部级数形式。","x":900,"y":1080,"width":360,"height":280,"color":"1"}
+	],
+	"edges":[
+		{"id":"15384ef9cad05678","fromNode":"e8051b2c3d4f6789","fromSide":"right","toNode":"f9162c3d4e5a7890","toSide":"left","color":"4"},
+		{"id":"26495f0adbe16789","fromNode":"f9162c3d4e5a7890","fromSide":"right","toNode":"0a273d4e5f6b8901","toSide":"left","color":"3"},
+		{"id":"375a601bcef27890","fromNode":"0a273d4e5f6b8901","fromSide":"right","toNode":"1b384e5f6a7c9012","toSide":"left","color":"6","label":"方程非齐次"},
+		{"id":"486b712cdf038901","fromNode":"0a273d4e5f6b8901","fromSide":"bottom","toNode":"2c495f6a7b8d0123","toSide":"top","color":"4","label":"边界先处理"},
+		{"id":"597c823def149012","fromNode":"2c495f6a7b8d0123","fromSide":"right","toNode":"3d5a607b8c9e1234","toSide":"left","color":"3"},
+		{"id":"6a8d934ef025a123","fromNode":"3d5a607b8c9e1234","fromSide":"right","toNode":"4e6b718c9d0f2345","toSide":"left","color":"5","label":"得到零边界"},
+		{"id":"7b9ea45f0136b234","fromNode":"4e6b718c9d0f2345","fromSide":"right","toNode":"5f7c829d0e1a3456","toSide":"left","color":"6"},
+		{"id":"8cafb5601247c345","fromNode":"5f7c829d0e1a3456","fromSide":"bottom","toNode":"6a8d93ae1f2b4567","toSide":"top","color":"5","label":"源项交给 Duhamel"},
+		{"id":"9dc0c6712358d456","fromNode":"6a8d93ae1f2b4567","fromSide":"right","toNode":"7b9ea4bf203c5678","toSide":"left","color":"6"},
+		{"id":"aec1d7823469e567","fromNode":"7b9ea4bf203c5678","fromSide":"right","toNode":"8cafb5c0314d6789","toSide":"left","color":"4","label":"套到作业"},
+		{"id":"bfd2e893457af678","fromNode":"8cafb5c0314d6789","fromSide":"right","toNode":"9dc0c6d1425e7890","toSide":"left","color":"1","label":"查错"},
+		{"id":"c0e3f9a4568b0789","fromNode":"9dc0c6d1425e7890","fromSide":"bottom","toNode":"aec1d7e2536f8901","toSide":"top","color":"2","label":"复习动作"},
+		{"id":"d1f40ab5679c1890","fromNode":"aec1d7e2536f8901","fromSide":"bottom","toNode":"bfd2e8f3647a9012","toSide":"top","color":"3","label":"阅读顺序"},
+		{"id":"e2051bc678ad2901","fromNode":"bfd2e8f3647a9012","fromSide":"right","toNode":"c0e3f9a4758b0123","toSide":"left","color":"5","label":"主笔记"}
+	]
 }
